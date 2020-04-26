@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="">
+  <meta name="description" content="Articles saver">
+  <title>Explorer</title>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+  <link rel="icon" href="<%= require('./images/favicon.png')%>" type="image/png">
+</head>
+
+<body>
+<div class="root__section"> <!--Just root will be goog-->
+  <header class="header">
+    <div class="menu"> <!-- here you should use <nav> because of it's navigation -->
+      <a href="./" class="menu__logo">Explorer</a>
+      <div class="menu__mobile" id="mobile-menu"></div>
+      <div class="menu__items-list">  <!--it looks confusing what is it elelment or modifer-->
+        <a href="./" class="menu__link menu__link_selected">Главная</a>
+        <div class="menu__items-single-item"> <!-- For button we use tag <button>-->
+            <span class="menu__link menu__link_logged">Юзер
+              <span class="menu__logout"></span> <!--For icon we use tag <i>-->
+            </span>
+        </div>
+      </div>
+    </div>
+    <div class="header__title-wrapper">
+      <h1 class="header__title">Что в мире творится?</h1>
+      <p class="header__subtitle"> <!--tag P you can move insdide tag <h1> it will beter for SEO-->
+        <b>Находите самые свежие статьи на любую тему
+          и сохраняйте в своём личном кабинете.</b>
+      </p>
+      <div class="header__form"> <!-- here would better <use /> form tag--> //
+        <input class="header__form-input" type="text" name="search" placeholder="Введите тему новости" required/>
+        <span class="button header__button">Искать</span> // here btn
+      </div>
+    </div>
+  </header>
+  <section class=preloader>
+    <div class="preloader__message" id="preloader-searching">
+      <i class="circle-preloader"></i>
+      <h5 class="preloader__subtitle">Идет поиск новостей...</h5>
+    </div>
+    <div class="preloader__message preloader__hide" id="preloader-not-found">
+      <img class="preloader__icon" src="<%= require('./images/not-found.svg')%>" alt="no">
+      <h4 class="preloader__title">Ничего не найдено</h4>
+      <h5 class="preloader__subtitle">К сожалению по вашему запросу ничего не найдено.</h5>
+    </div>
+  </section>
+  <main class="results">
+    <h3 class="results__title">Результаты поиска</h3>
+    <div class="results__news">
+      <a href="#" class="card"> <!--card should be in <Arctcle> tag--> // 
+        <div class="card__body">
+          <div class="card_image-wrapper"> <!--Don't follow the style of naming class BEM. Use double underscore for element-->
+            <div class="card_img"></div> <!--Don't follow the style of naming class BEM. Use double underscore for element-->
+          </div>
+          <div class="card__icon"></div> <!--For icon tag <i>-->
+          <p class="card__warning">Войдите, чтобы сохранять статьи</p>
+          <div class="card_wrapper"> 
+            <p class="card_date">2 августа, 2019</p> <!--For time data  we use time tage-->
+            <h4 class="card_title">Why do we use it?</h4>
+            <div class="card_text">It is a long established fact that a reader will be distracted by the readable content
+              of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here, content here', making it look like readable
+              English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+              text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions
+              have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </div> <!--For you text here will be better to use <p> tag instead <div>-->>
+          </div>
+        </div>
+        <p class="card_src">lipsum.com</p> <!--Here will be better use tag <a> because it's link-->
+      </a>
+      <a href="#" class="card">
+        <div class="card__body">
+          <div class="card_image-wrapper">
+            <div class="card_img"></div>
+          </div>
+          <div class="card__icon"></div>
+          <p class="card__warning">Войдите, чтобы сохранять статьи</p>
+          <div class="card_wrapper">
+            <p class="card_date">2 августа, 2019</p>
+            <h4 class="card_title">Why do we use it?</h4>
+            <div class="card_text">It is a long established fact that a reader will be distracted by the readable content
+              of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here, content here', making it look like readable
+              English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+              text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions
+              have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </div>
+          </div>
+        </div>
+        <p class="card_src">lipsum.com</p>
+      </a>
+      <a href="#" class="card">
+        <div class="card__body">
+          <div class="card_image-wrapper">
+            <div class="card_img"></div>
+          </div>
+          <div class="card__icon"></div>
+          <p class="card__warning">Войдите, чтобы сохранять статьи</p>
+          <div class="card_wrapper">
+            <p class="card_date">2 августа, 2019</p>
+            <h4 class="card_title">Why do we use it?</h4>
+            <div class="card_text">It is a long established fact that a reader will be distracted by the readable content
+              of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here, content here', making it look like readable
+              English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+              text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions
+              have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </div>
+          </div>
+        </div>
+        <p class="card_src">lipsum.com</p>
+      </a>
+      <a href="#" class="card">
+        <div class="card__body">
+          <div class="card_image-wrapper">
+            <div class="card_img"></div>
+          </div>
+          <div class="card__icon card__icon_marked"></div>
+          <p class="card__warning">Войдите, чтобы сохранять статьи</p>
+          <div class="card_wrapper">
+            <p class="card_date">2 августа, 2019</p>
+            <h4 class="card_title">Why do we use it?</h4>
+            <div class="card_text">It is a long established fact that a reader will be distracted by the readable content
+              of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here, content here', making it look like readable
+              English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+              text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions
+              have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </div>
+          </div>
+        </div>
+        <p class="card_src">lipsum.com</p>
+      </a>
+    </div>
+    <button class="button results__button">Показать еще</button>
+  </main>
+  <section class="about results__about">
+    <div> <!--Here will be good to use tag <article>--> 
+      <h3 class="about__title">Об авторе</h3>
+      <p class="about__text">
+        Vivamus sed volutpat odio. Praesent placerat gravida erat, in ornare ex. <br/> Nullam vitae tellus euismod, egestas
+        diam vel, maximus orci. Nulla fringilla, enim ut pharetra rhoncus, arcu enim aliquet turpis, ac tempus dolor
+        lacus a velit. Donec semper velit eu volutpat bibendum. <br/> In ultricies dolor quis neque pellentesque pharetra.
+        Donec nibh urna, suscipit in feugiat at, facilisis et turpis. Fusce blandit tincidunt libero, sed ornare sapien
+        tincidunt nec. Curabitur quis fermentum felis.
+      </p>
+      <p class="about__text">
+        Quisque urna magna, molestie id nisl vitae, bibendum auctor sem. <br/> Aliquam efficitur orci elit, lacinia fringilla
+        nibh aliquet non. Morbi consectetur tincidunt dui in rhoncus. Vestibulum imperdiet luctus sodales. Class aptent
+        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vitae tincidunt sem.
+      </p>
+    </div>
+  </section>
+  <footer class="footer">
+    <p class="footer__legal">© 2019</p>
+    <ul class="footer__menu"> <!--Also be good to use here <nav /> tag-->
+      <li class="footer__menu-item"><a href="./">Главная</a></li>
+      <li class="footer__menu-item"><a href="./about/">О проекте</a></li>
+      <li class="footer__menu-item"><a href="https://praktikum.yandex.ru" target="_blank">Яндекс.Практикум</a></li>
+    </ul>
+    <p class="footer__links">
+      <a href="#" class="footer__social-icon" target="_blank">
+        <img src="<%= require('./images/social/git.svg')%>" alt="Logo">
+      </a>
+      <a href="#" class="footer__social-icon" target="_blank">
+        <img src="<%= require('./images/social/facebook.svg')%>" alt="Logo">
+      </a>
+    </p>
+  </footer>
+</div>
+<div id="modal">
+  <section class="auth-form__wrapper auth-form__wrapper_hide" id="login-form">
+    <form class="auth-form" name="login">
+      <div class="auth-form__close" id="close-login-form"></div>
+      <h4 class="auth-form__title">Вход</h4>
+      <span class="auth-form__subtitle">E-mail</span> <!--For name of input better use <label> tag-->
+      <input class="auth-form__input" name="email" type="email" placeholder="Введите почту" required>
+      <span class="auth-form__error-message" id="error-email-login">
+          Введите корректный email!
+        </span>
+      <span class="auth-form__subtitle">Пароль</span>
+      <input class="auth-form__input" name="password" type="password" placeholder="Введите пароль" required>
+      <span class="auth-form__error-message auth-form__error-message_hide" id="error-password-login">
+          Поле не может быть пустым!
+        </span>
+      <span class="auth-form__error-message auth-form__error-message_usr-exists" id="error-not-logged">
+          Неправильный логин или пароль
+        </span>
+      <button class="button auth-form__button" name="login-button" type="submit" disabled>Войти</button>
+      <span class="auth-form__other-action">
+          или <span class="auth-form__other-action-click" id="open-signup-form">Зарегистрироваться</span>
+        </span>
+    </form>
+  </section>
+
+  <section class="auth-form__wrapper auth-form__wrapper_hide" id="signup-form">
+    <form class="auth-form" name="signup">
+      <div class="auth-form__close" id="close-signup-form"></div>
+      <h4 class="auth-form__title">Регистрация</h4>
+      <span class="auth-form__subtitle">E-mail</span>
+      <input class="auth-form__input" name="email" placeholder="Введите почту" type="email" required>
+      <span class="auth-form__error-message auth-form__error-message_hide" id="error-email">Введите корректный email!</span>
+      <span class="auth-form__subtitle">Пароль</span>
+      <input class="auth-form__input" name="password" type="password" placeholder="Введите пароль" minlength="8"
+             required>
+      <span class="auth-form__error-message" id="error-password">
+          Длина пароля должна быть 8 или более символов
+        </span>
+      <span class="auth-form__subtitle">Имя</span>
+      <input class="auth-form__input" name="name" placeholder="Введите свое имя" required minlength="2">
+      <span class="auth-form__error-message auth-form__error-message_hide" id="error-name">
+          Введите имя!
+        </span>
+      <span class="auth-form__error-message auth-form__error-message_usr-exists" id="error-register">
+          Такой пользователь уже есть
+        </span>
+      <button class="button auth-form__button" name="signup-button" type="submit">Зарегистрироваться</button>
+      <span class="auth-form__other-action">
+          или <span class="auth-form__other-action-click" id="open-login-form">Войти</span>
+        </span>
+    </form>
+  </section>
+
+  <section class="auth-form__wrapper auth-form__wrapper_hide" id="signup-ok">
+    <form class="auth-form">
+      <div class="auth-form__close" id="close-signup-ok-form"></div>
+      <h4 class="auth-form__title">Пользователь успешно зарегистрирован!</h4>
+      <span class="auth-form__other-action auth-form__other-action_left">
+          <span class="auth-form__other-action-click" id="open-login-modal">Выполнить вход</span>
+        </span>
+    </form>
+  </section>
+
+  <div class="overlay"></div>
+</div>
+<script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+
+</html>
+
+<!--
+   ### SEMANTIC LAYOUT:
+
+   Success:✅
+   You've done the good semantic layout
+   just a few notes I left in the code read them.
+
+   /////////////////////////////////////////////////////////////////////////////////////////////////
+
+   ### BEM NAMING CONVENTION:
+
+   Success:✅
+   The good job of naming BEM classes
+   except one point in some part of code, it doesn't follow BEM style rules.
+
+   Why:
+   code using block_element-modifier
+   but the naming convention of BEM suggest to do it in another way.
+
+   Solution:
+   use block__element_modifier or block__element--modifier
+   read a short article about the naming convention in BEM https://en.bem.info/methodology/naming-convention/#naming-rules, and I left a few notes where you made mistake in the code.
+   look at them and correct by analogy the rest
+
+   /////////////////////////////////////////////////////////////////////////////////////////////////
+
+   ### BEM FILE STRUCTURE:
+
+   Warning:⚠️
+   It doesn't clear what folder the main means.
+
+   Why:
+   If to follow BEM folder structure rules then each block should have a directory with the name of the block that contains the files for implementing the block.
+   But your main folder isn't block and therefore it shouldn't contain other files and folder.
+
+   Solution:
+   Move all the blocks that are in the main folder.
+   And please read this article https://ru.bem.info/methodology/filestructure/
+
+   /////////////////////////////////////////////////////////////////////////////////////////////////
+
+   ### RESPONSIBLE LAYOUT
+
+   Mistake:❗
+   Сode uses absolute units such as pixels.
+
+   Why:
+   Code uses pixels throughout the website Why is bad?
+
+   1) What if a user changes the default font-size of the browser or device ?) Your header’s font-size say 20px will remain 20 px. Hence user’s font preferences won’t be reflected. 
+
+   2) Inconvenient to work with adaptive
+
+   Solution:
+   use rem instead of px and read this great article
+   https://engageinteractive.co.uk/blog/em-vs-rem-vs-px
+   
+   -----------------------------------
+
+   Mistake:❗
+   Сode doesn't use the adaptive layout grid.
+
+   Why:
+   Without an adaptive layout grid is difficult to create a fully adaptive layout.
+
+   Solution:
+   Use ready-made grid layout such as Bootstrap grid or create your own
+   it's not difficult, this great article helps you
+   https://zellwk.com/blog/responsive-grid-system/
+
+   /////////////////////////////////////////////////////////////////////////////////////////////////
+
+   ### PACKAGE.JSON:
+
+   Warning:⚠️
+   Poor dependency separation.
+
+   Why:
+   Dependencies should contain libs and frameworks your app is built on,
+   such as React, JQuery, etc. But dependencies in code contain
+   libraries that are not used to create the app.
+
+   Solution:
+   You can ask yourself my app will be work without this dependencies
+   if answer yes then it's devDependencies if not then dependencies.
+
+   General notes:
+   Use -dev flag, if you are installing packages that you will use during development
+   and don't if the package you are installing is for production.
+
+   ### WEBPACK CONFIG
+
+   Succes: ✅
+   Great work.🔥
+
+   Why:
+   Вundle was successful
+
+   ### .GITIGNORE
+
+   Success:✅
+   looks good.
+
+  -->
